@@ -1,0 +1,87 @@
+Unbound Protocol
+Copyright (c) 2026 MarkPronkin and Unbound Protocol contributors
+
+Licensed under the MIT License. The text is in the LICENSE file.
+
+That MIT license covers this project's own source, documentation, tests,
+synthetic fixtures, and original branding. It does not relicense a dependency
+or a system library. It does not grant patent rights. It does not license any
+third-party trademark.
+
+Product names identify devices this program can talk to. XREAL, Nreal, Rokid,
+Grawoow, Metavision, Mad Gaze, Nubia, ROG, and OpenXR are trademarks of their
+respective owners. Unbound Protocol is not sponsored by or affiliated with
+those owners.
+
+Protocol research is credited here. No file from these projects is copied
+into this repository:
+
+  MarkPronkin and The Unbound Launcher contributors (protocol notes and the
+    Dot Portal branding adapted for Unbound Protocol)
+  Alex Badics and ar-drivers-rs contributors (MIT)
+    https://github.com/badicsalex/ar-drivers-rs
+    Copyright (c) 2023 Alex Badics
+    The Light, Rokid, Grawoow and Mad Gaze modules, and parts of the Air
+    module, were written with reference to this driver. Portions derived
+    from it are used under its MIT license. The complete copyright and
+    permission notice is in licenses/ar-drivers-rs-MIT.txt.
+  0xcaff and xr-tools contributors (protocol observations)
+    https://github.com/0xcaff/xr-tools
+
+Dependencies keep the licenses declared by their crates. Cargo.lock pins the
+versions. Binary distributors ship the applicable license text with the binary.
+
+  socket2
+    MIT OR Apache-2.0. Apache-2.0 components also require retention of any
+    NOTICE file shipped with that component.
+  hidapi (optional feature "hid")
+    MIT. The native HIDAPI sources bundled by that crate are used under the
+    BSD-3-Clause terms below. The non-endorsement clause is part of those terms.
+  rusb (optional feature "libusb")
+    MIT. Its libusb dependency is LGPL-2.1-or-later. This feature links the
+    shared system libusb and does not vendor it. Install the shared library
+    before building. A build that statically includes libusb is not a
+    distributable build of this project: the upstream binding compiles its own
+    copy when the system library is missing, and this crate refuses that
+    result. Distributors of a binary built with this feature must comply with
+    LGPL-2.1 for libusb, including providing its license text. A verbatim copy
+    of LGPL-2.1 is in licenses/LGPL-2.1.txt. On Windows, use a shared triplet
+    such as x64-windows, not a static triplet.
+  serialport (optional feature "serial")
+    MPL-2.0. The MPL applies to serialport's own files and does not relicense
+    this project. The MPL text is at https://www.mozilla.org/MPL/2.0/.
+    serialport depends on unescaper, which is MIT OR GPL-3.0-only. This project
+    elects the MIT terms for unescaper.
+  Other crates in Cargo.lock
+    MIT, Apache-2.0, BSD-2-Clause, or Unicode-3.0, as each crate declares,
+    including combinations of those licenses.
+
+Bundled native HIDAPI, BSD-3-Clause license option. This notice is included
+because the optional hid feature compiles that library:
+
+Copyright (c) 2010, Alan Ott, Signal 11 Software
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+    * Neither the name of Signal 11 Software nor the names of its
+      contributors may be used to endorse or promote products derived from
+      this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.

@@ -1,0 +1,45 @@
+name: Rust
+on: [push, pull_request]
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install shared libusb (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libusb-1.0-0-dev pkg-config
+      - name: Install shared libusb (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          brew install libusb pkg-config
+          echo "PKG_CONFIG_PATH=$(brew --prefix libusb)/lib/pkgconfig" >> "$GITHUB_ENV"
+      - name: Install shared libusb (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          vcpkg install libusb:x64-windows
+          Add-Content $env:GITHUB_ENV "VCPKG_ROOT=$env:VCPKG_INSTALLATION_ROOT"
+          Add-Content $env:GITHUB_PATH "$env:VCPKG_INSTALLATION_ROOT\installed\x64-windows\bin"
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - run: cargo fmt --all --check
+      - run: cargo test --locked --no-default-features
+      - run: cargo test --locked --all-features --all-targets
+      - run: cargo test --locked --doc --all-features
+      - run: cargo clippy --locked --all-features --all-targets -- -D warnings
+      - run: cargo clippy --locked --no-default-features --all-targets -- -D warnings
+      - run: cargo check --locked --no-default-features --features hid --all-targets
+      - run: cargo check --locked --no-default-features --features libusb --all-targets
+      - run: cargo check --locked --no-default-features --features serial --all-targets
+  msrv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install shared libusb
+        run: sudo apt-get update && sudo apt-get install -y libusb-1.0-0-dev pkg-config
+      - uses: dtolnay/rust-toolchain@1.85.0
+      - run: cargo check --locked --all-features --all-targets
