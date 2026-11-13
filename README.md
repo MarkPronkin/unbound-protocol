@@ -168,9 +168,10 @@ fn main() -> unbound_protocol::Result<()> {
 }
 ```
 
-The [`glasses` API](docs/API.md) provides one non-generic handle for every family:
-discovery, explicit connections, capabilities, common display modes, normalized
-brightness, sensor lifecycle, and reports/events with native data retained.
+The [`glasses` API](docs/API.md) provides one unified interface for all supported
+glasses families. It covers discovery, explicit connections, capabilities,
+common display modes, normalized brightness, sensor lifecycle, and reports/events
+with native data retained.
 Capabilities account for missing interfaces and transport differences;
 unsupported operations return `Error::Unsupported`. Existing `one`, `air`,
 `light`, `rokid`, `grawoow`, `mad_gaze`, and `usb` APIs remain available for
@@ -248,6 +249,12 @@ were written with reference to
 [ar-drivers-rs](https://github.com/badicsalex/ar-drivers-rs) by Alex Badics,
 used under the MIT license. Its copyright and permission notice is reproduced
 in [licenses/ar-drivers-rs-MIT.txt](licenses/ar-drivers-rs-MIT.txt).
+
+Protocol research also builds on
+[xr-tools](https://github.com/0xcaff/xr-tools) by Martin Charles
+([0xcaff](https://github.com/0xcaff)), licensed under the MIT license.
+Its copyright and permission notice is reproduced in
+[licenses/xr-tools-MIT.txt](licenses/xr-tools-MIT.txt).
 
 Source, documentation, and original branding are [MIT licensed](LICENSE).
 Dependencies retain their own licenses. See [NOTICE](NOTICE).

@@ -25,8 +25,11 @@ into this repository:
     module, were written with reference to this driver. Portions derived
     from it are used under its MIT license. The complete copyright and
     permission notice is in licenses/ar-drivers-rs-MIT.txt.
-  0xcaff and xr-tools contributors (protocol observations)
+  Martin Charles (0xcaff) and xr-tools contributors (MIT; protocol observations)
     https://github.com/0xcaff/xr-tools
+    Copyright (c) 2025-2026 Martin Charles
+    The complete copyright and permission notice is in
+    licenses/xr-tools-MIT.txt.
 
 Dependencies keep the licenses declared by their crates. Cargo.lock pins the
 versions. Binary distributors ship the applicable license text with the binary.

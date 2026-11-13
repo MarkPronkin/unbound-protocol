@@ -8,7 +8,7 @@ description = "Independent AR glasses USB, HID, serial and TCP protocols"
 authors = ["MarkPronkin <109197080+MarkPronkin@users.noreply.github.com>"]
 repository = "https://github.com/MarkPronkin/unbound-protocol"
 readme = "README.md"
-include = ["/src/**/*.rs", "/examples/**/*.rs", "/tests/**/*.rs", "/tests/fixtures/*.bin", "/tools/*.py", "/docs/**", "/assets/**", "/licenses/LGPL-2.1.txt", "/licenses/ar-drivers-rs-MIT.txt","/build.rs", "/LICENSE", "/NOTICE", "/README.md", "/Cargo.toml", "/Cargo.lock"]
+include = ["/src/**/*.rs", "/examples/**/*.rs", "/tests/**/*.rs", "/tests/fixtures/*.bin", "/tools/*.py", "/docs/**", "/assets/**", "/licenses/LGPL-2.1.txt", "/licenses/ar-drivers-rs-MIT.txt", "/licenses/xr-tools-MIT.txt", "/build.rs", "/LICENSE", "/NOTICE", "/README.md", "/Cargo.toml", "/Cargo.lock"]
 
 [features]
 default = []
